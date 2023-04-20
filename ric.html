@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RICC THE FAIZZZERES</title>
+<h1>
+  epic website made by ketz#6611
+</h1> 
+  <style>
+body {
+  background: black;
+}
+
+.image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ip-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+h6 {
+    color: rgb(89, 0, 255);
+    font-family: Arial;
+}
+h5 {
+    color: rgb(89, 0, 255);
+}
+h4 {
+    color: rgb(89, 0, 255);
+}
+h3 {
+    color: rgb(89, 0, 255);
+}
+
+h1 {
+    color: white
+}
+  </style>
+  <script>
+    window.onload = function() {
+      const request = new XMLHttpRequest();
+      request.open('GET', 'https://api.ipify.org?format=json', true);
+      request.onload = function() {
+        if (request.status === 200) {
+          const response = JSON.parse(request.responseText);
+          const ipAddress = response.ip;
+          const ipAddressElement = document.getElementById('ip-address');
+          ipAddressElement.innerHTML = ipAddress;
+        } else {
+          const errorMessage = 'Unable to retrieve IP address';
+          const ipAddressElement = document.getElementById('ip-address');
+          ipAddressElement.innerHTML = errorMessage;
+        }
+      };
+      request.onerror = function() {
+        const errorMessage = 'Network error';
+        const ipAddressElement = document.getElementById('ip-address');
+        ipAddressElement.innerHTML = errorMessage;
+      }
+      request.send();
+
+      let countdown = 100;
+const countdownElement = document.getElementById('countdown');
+const countdownInterval = setInterval(function() {
+  countdown--;
+  countdownElement.innerHTML = countdown;
+  if (countdown <= 0) {
+    clearInterval(countdownInterval);
+    window.location.href = "https://www.youtube.com/watch?v=-bROlO-KMto";
+  }
+}, 50);
+
+
+      const imageContainer = document.querySelector('.image-container');
+      const image = document.createElement('img');
+      image.src = 'alterna.jpg';
+      imageContainer.appendChild(image);
+      setTimeout(() => {
+        imageContainer.style.opacity = '1';
+      }, 1000);
+    }
+  </script>
+</head>
+<body>
+  <div class="image-container">
+  </div>
+  <div class="ip-container">
+    <h6>
+      <p>Hello, Mr</p>
+    </h6>
+    <h4>
+      <p id="ip-address"></p>
+    </h4>
+    <h6>
+      <p>big goth tiddy egirls in</p>
+    </h6>
+    <h3>
+      <p><span id="countdown"></span></p>
+    </h3>
+    <h6>
+      <p>seconds</p>
+    </h6>
+  </div>
+</body>
+</html>
